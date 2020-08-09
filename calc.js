@@ -1,3 +1,9 @@
+//Selcting elements 
+
+const input = document.querySelector(".input");
+const result = document.querySelector(".result .value")
+const operation = document.querySelector(".operation .value")
+
 let calc_buttons = [
     {
         name: "delete",
@@ -115,12 +121,6 @@ let calc_buttons = [
     }
 ];
 
-//Selcting elements 
-
-const input = document.querySelector(".input");
-const result = document.querySelector(".result .value")
-const operation = document.querySelector(".operation .value")
-
 // Creating buttons 
 
 function createButtons() {
@@ -133,10 +133,21 @@ function createButtons() {
         }
 
         const row = document.querySelector(".row:last-child");
-        row.innerHTML += `<button id="${button.name}">${button.symbol}<button>`;
+        row.innerHTML += `<button id="${button.name}">${button.symbol}</button>`;
 
         buttons_added++;
-    })
+    });
 }
 
 createButtons();
+
+// Click event
+
+input.addEventListener("click", event => {
+    const targeted_button = event.target;
+
+    calc_buttons.forEach(button => {
+        if(button.name == targeted_button.id)calculator(button);
+    })
+})
+
