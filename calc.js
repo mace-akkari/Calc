@@ -102,14 +102,16 @@ let calc_buttons = [
         type: "operator"
     },
     {
-        name: "0",
+        name: "zero",
         symbol: 0,
         formula: 0,
         type: "number"
     },
-    { name: "empty",
-    symbol: "",
-    type: "null"},
+    {
+        name: "empty",
+        symbol: "",
+        type: "null"
+    },
     {
         name: "point",
         symbol: ".",
@@ -131,7 +133,7 @@ function createButtons() {
     let buttons_added = 0;
 
     calc_buttons.forEach(button => {
-        if(buttons_added % buttons_per_row == 0){
+        if (buttons_added % buttons_per_row == 0) {
             input.innerHTML += `<div class="row"></div>`;
         }
 
@@ -150,7 +152,7 @@ input.addEventListener("click", event => {
     const targeted_button = event.target;
 
     calc_buttons.forEach(button => {
-        if(button.name == targeted_button.id)calculator(button);
+        if (button.name == targeted_button.id) calculator(button);
     })
 })
 
