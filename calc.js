@@ -107,6 +107,9 @@ let calc_buttons = [
         formula: 0,
         type: "number"
     },
+    { name: "empty",
+    symbol: "",
+    type: "null"},
     {
         name: "point",
         symbol: ".",
