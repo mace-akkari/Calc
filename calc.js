@@ -129,18 +129,8 @@ let calc_buttons = [
 // Creating buttons 
 
 function createButtons() {
-    const buttons_per_row = 4;
-    let buttons_added = 0;
-
     calc_buttons.forEach(button => {
-        if (buttons_added % buttons_per_row == 0) {
-            input.innerHTML += `<div class="row"></div>`;
-        }
-
-        const row = document.querySelector(".row:last-child");
-        row.innerHTML += `<button id="${button.name}">${button.symbol}</button>`;
-
-        buttons_added++;
+        input.innerHTML += `<button id="${button.name}">${button.symbol}</button>`;
     });
 }
 
