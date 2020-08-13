@@ -7,7 +7,7 @@ const operation = document.querySelector(".operation .value")
 let calc_buttons = [
     {
         name: "delete",
-        symbol: "⟲",
+        symbol: "DEL",
         formula: false,
         type: "key"
     },
@@ -106,11 +106,6 @@ let calc_buttons = [
         symbol: 0,
         formula: 0,
         type: "number"
-    },
-    {
-        name: "empty",
-        symbol: "",
-        type: "null"
     },
     {
         name: "point",
