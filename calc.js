@@ -1,8 +1,8 @@
 //Selcting elements 
 
-const input = document.querySelector(".input");
-const result = document.querySelector(".result .value")
-const operation = document.querySelector(".operation .value")
+const inputElm = document.querySelector(".input");
+const resultElm = document.querySelector(".result .value")
+const operationElm = document.querySelector(".operation .value")
 
 let calc_buttons = [
     {
@@ -125,7 +125,7 @@ let calc_buttons = [
 
 function createButtons() {
     calc_buttons.forEach(button => {
-        input.innerHTML += `<button id="${button.name}">${button.symbol}</button>`;
+        inputElm.innerHTML += `<button id="${button.name}">${button.symbol}</button>`;
     });
 }
 
@@ -133,7 +133,7 @@ createButtons();
 
 // Click event
 
-input.addEventListener("click", event => {
+inputElm.addEventListener("click", event => {
     const targeted_button = event.target;
 
     calc_buttons.forEach(button => {
@@ -141,3 +141,41 @@ input.addEventListener("click", event => {
     })
 })
 
+// Calcualtor data
+
+let data = {
+    operation: [],
+    result: []
+}
+
+//Calculator 
+
+function calculator(button) {
+    if (button.type == "number") {
+        data.operation.push(button.symbol);
+        data.result.push(button.formula);
+    } else if (button.type == "operator") {
+        data.operation.push(button.symbol);
+        data.result.push(button.formula);
+    } else if (button.type == "key") {
+        if (button.name == "clear") {
+            data.operation = [];
+            data.result = [];
+            updateResult(0);
+        } else if (button.name == "delete") {
+            data.result.pop();
+            data.operation.pop();
+        }
+    } else if (button.type == "calculate") {
+
+    }
+    updateOperation(data.operation.join(''));
+}
+
+function updateOperation(operation) {
+    operationElm.innerHTML = operation;
+}
+
+function updateResult(result) {
+    resultElm.innerHTML = result;
+}
