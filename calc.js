@@ -167,6 +167,36 @@ function calculator(button) {
             data.operation.pop();
         }
     } else if (button.type == "calculate") {
+        let join_result = data.result.join('');
+
+        let result;
+        try {
+            result = eval(join_result);
+            updateOperation(0)
+            data.operation = [];
+            data.result = [];
+            updateResult(0);
+            data.operation = [];
+        } catch (error) {
+            if (error instanceof SyntaxError) {
+                result = "Error!"
+                data.operation = [];
+                data.result = [];
+                updateResult(result);
+                return;
+
+            }
+        }
+
+        updateResult(result)
+
+        data.operation = [];
+        data.result = [];
+
+        data.operation.push(result);
+        data.result.push(result)
+
+        return;
 
     }
     updateOperation(data.operation.join(''));
