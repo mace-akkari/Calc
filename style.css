@@ -7,13 +7,14 @@
 
 html{
     font-size: 16px;
+    background-color:  #96eeea;
 }
 
 .container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
 }
 
 .calc-container{
