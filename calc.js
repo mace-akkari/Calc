@@ -169,13 +169,13 @@ function calculator(button) {
     } else if (button.type == "calculate") {
         let join_result = data.result.join('');
 
+        data.operation = [];
+        data.result = [];
+
         let result;
         try {
             result = eval(join_result);
             updateOperation(0)
-            data.operation = [];
-            data.result = [];
-            updateResult(0);
             data.operation = [];
         } catch (error) {
             if (error instanceof SyntaxError) {
@@ -190,8 +190,6 @@ function calculator(button) {
 
         updateResult(result)
 
-        data.operation = [];
-        data.result = [];
 
         data.operation.push(result);
         data.result.push(result)
