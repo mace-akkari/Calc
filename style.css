@@ -3,6 +3,8 @@
     margin: 0;
     background-origin: padding-box;
     font-family: sans-serif;
+    outline: none;
+    box-sizing: border-box;
 }
 
 html{
