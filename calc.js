@@ -150,55 +150,52 @@ let data = {
 
 //Calculator 
 
-function calculator(button) { // switch statment
-    if (button.type == "number") {
-        data.operation.push(button.symbol);
-        data.result.push(button.formula);
-    } else if (button.type == "operator") {
-        data.operation.push(button.symbol);
-        data.result.push(button.formula);
-    } else if (button.type == "key") {
-        if (button.name == "clear") {
+function calculator(button) {
+    let result;
+    switch (true) {
+        case button.type == "number" || button.type === "operator":
+            data.operation.push(button.symbol);
+            data.result.push(button.formula);;
+            break;
+        case button.type == "clear":
             data.operation = [];
             data.result = [];
-            updateResult(0);
-        } else if (button.name == "delete") {
+            updateResult(0);;
+            break;
+        case button.name == "delete":
             data.result.pop();
-            data.operation.pop();
-        }
-    } else if (button.type == "calculate") {
-        let join_result = data.result.join('');
-
-        data.operation = [];
-        data.result = [];
-
-        let result;
-        try {
-            result = eval(join_result);
-            updateOperation(0)
+            data.operation.pop();;
+            break;
+        case button.type == "calculate":
+            let join_result = data.result.join('');
             data.operation = [];
-        } catch (error) {
-            if (error instanceof SyntaxError) {
-                result = "Error!"
+            data.result = [];
+
+            try {
+                result = eval(join_result);
+                updateOperation(0)
                 data.operation = [];
-                data.result = [];
-                updateResult(result);
-                return;
+            } catch (error) {
+                if (error instanceof SyntaxError) {
+                    result = "Error!"
+                    data.operation = [];
+                    data.result = [];
+                    updateResult(result);
+                    return;
 
+                }
             }
-        }
-
-        updateResult(result)
+            updateResult(result)
 
 
-        data.operation.push(result);
-        data.result.push(result)
+            data.operation.push(result);
+            data.result.push(result)
 
-        return;
-
+            return;
     }
     updateOperation(data.operation.join(''));
 }
+
 
 function updateOperation(operation) {
     operationElm.innerHTML = operation;
