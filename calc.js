@@ -139,7 +139,7 @@ inputElm.addEventListener("click", event => {
     calc_buttons.forEach(button => {
         if (button.name === targeted_button.id) calculator(button);
     })
-})    
+})
 
 // Calcualtor data
 
@@ -155,16 +155,16 @@ function calculator(button) {
     switch (true) {
         case button.type === "number" || button.type === "operator":
             data.operation.push(button.symbol);
-            data.result.push(button.formula);;
+            data.result.push(button.formula);
             break;
-        case button.type === "clear":
+        case button.type == "clear":
             data.operation = [];
             data.result = [];
-            updateResult(0);;
+            updateResult(0);
             break;
         case button.name === "delete":
             data.result.pop();
-            data.operation.pop();;
+            data.operation.pop();
             break;
         case button.type === "calculate":
             let join_result = data.result.join('');
