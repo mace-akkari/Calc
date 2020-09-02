@@ -43,8 +43,9 @@ html{
     position: absolute;
     bottom: 5px;
     right : 10px;
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
+    word-break: break-all;
 }
 
 .result{
@@ -62,10 +63,10 @@ html{
     top: 50%;
     transform: translateY(-50%);
     right : 10px;
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
+    word-break: break-all;
 }
-
 
 .input{
     background-color: #949090;
@@ -76,8 +77,6 @@ html{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr); 
 }
-
-
 
 button{
     font-size: 1.5em;
