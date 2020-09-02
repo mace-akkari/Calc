@@ -157,7 +157,7 @@ function calculator(button) {
             data.operation.push(button.symbol);
             data.result.push(button.formula);
             break;
-        case button.type == "clear":
+        case button.name === "clear":
             data.operation = [];
             data.result = [];
             updateResult(0);
